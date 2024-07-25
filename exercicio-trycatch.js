@@ -36,7 +36,8 @@ try {
         console.log('ERRO!');
         console.log(error.message);
     } else {
-        console.log('ERRO DESCONHECIDO:', error.message);
+        console.log('ERRO DESCONHECIDO!');
+        console.log(error.message);
     }
 } finally {
     carregando = false;
