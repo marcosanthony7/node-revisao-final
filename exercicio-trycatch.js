@@ -5,10 +5,10 @@ class DivisaoPorZeroError extends Error {
     }
 }
 
-class DivisaoMenorQueUmError extends Error {
+class ResultadoMenorQueUmError extends Error {
     constructor(message) {
         super(message);
-        this.name = 'DivisaoMenorQueUmError';
+        this.name = 'ResultadoMenorQueUmError';
     }
 }
 
@@ -26,21 +26,17 @@ try {
     let result = a / b;
 
     if (result < 1) {
-        throw new DivisaoMenorQueUmError('A DIVISÃO NÃO PODE SER MENOR QUE 1!');
+        throw new ResultadoMenorQueUmError('O RESULTADO DA DIVISÃO NÃO PODE SER MENOR QUE 1!');
     }
 
-    console.log('Calculou');
-    console.log(result);
+    console.log('CALCULOU!');
+    console.log('RESULTADO:', result);
 } catch (error) {
-    if (error instanceof DivisaoPorZeroError) {
-        console.log('Erro de divisão por zero!');
-        console.log(error.message);
-    } else if (error instanceof DivisaoMenorQueUmError) {
-        console.log('Erro de divisão menor que 1!');
+    if (error instanceof DivisaoPorZeroError || error instanceof ResultadoMenorQueUmError) {
+        console.log('ERRO!');
         console.log(error.message);
     } else {
-        console.log('Erro desconhecido:');
-        console.log(error.message);
+        console.log('ERRO DESCONHECIDO:', error.message);
     }
 } finally {
     carregando = false;
